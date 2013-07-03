@@ -34,8 +34,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			public int getCount() {
 				return 5;
 			}
-			
-			
+
 			@Override
 			public Object instantiateItem(ViewGroup container, int position) {
 				View v = View.inflate(getApplicationContext(), R.layout.viewpager_content, null);
