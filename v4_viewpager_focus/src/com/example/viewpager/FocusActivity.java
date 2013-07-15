@@ -11,8 +11,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class MainActivity extends Activity implements OnClickListener {
-
+public class FocusActivity extends Activity implements OnClickListener {
 	private ViewPager mViewPager;
     private  TextView mText;
 
