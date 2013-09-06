@@ -11,6 +11,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.android.bugfix.R;
+
 public class OnPageSelectedActivity extends Activity implements OnClickListener {
 	private ViewPager mViewPager;
     private  TextView mText;

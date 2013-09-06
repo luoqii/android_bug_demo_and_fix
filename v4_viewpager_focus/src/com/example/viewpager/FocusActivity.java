@@ -11,6 +11,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.android.bugfix.R;
+
 public class FocusActivity extends Activity implements OnClickListener {
 	private ViewPager mViewPager;
     private  TextView mText;
@@ -29,6 +31,11 @@ public class FocusActivity extends Activity implements OnClickListener {
 				return arg0 == arg1;
 			}
 			
+			@Override
+			public float getPageWidth(int position) {
+//			    return super.getPageWidth(position);
+			    return 0.5f;
+			}
 			@Override
 			public int getCount() {
 				return 5;

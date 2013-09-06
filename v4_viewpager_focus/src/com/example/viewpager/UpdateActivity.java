@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.android.bugfix.R;
+
 public class UpdateActivity extends Activity implements OnClickListener {
 
 	private ViewPager mViewPager;
