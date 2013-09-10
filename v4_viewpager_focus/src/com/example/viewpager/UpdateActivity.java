@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,6 +13,13 @@ import android.widget.TextView;
 
 import com.example.android.bugfix.R;
 
+/**
+ * 
+ * android support-v4 viewpageradapter.notifyDataSetChanged do NOT work properply.
+ * 
+ * @author bysong
+ *
+ */
 public class UpdateActivity extends Activity implements OnClickListener {
 
 	private ViewPager mViewPager;
@@ -76,13 +82,11 @@ public class UpdateActivity extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View view) {
-		KeyEvent event = new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DPAD_LEFT);
 		if (view.getId() == R.id.button1) {
+            mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
 		} else {
-			event = new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DPAD_RIGHT);
+			mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
 		}
-
-		mViewPager.executeKeyEvent(event);
 		runOnUiThread(new Runnable() {
 			
 			@Override
@@ -104,16 +108,19 @@ public class UpdateActivity extends Activity implements OnClickListener {
 		public int getItemPosition(Object object) {
 			if (mExistedPageCount > 0) {
 				mExistedPageCount--;
+				
 				// to cheat viewpager
 				// let pager destroy ourself and re-create to update data.
 				return POSITION_NONE;
 			}
+			
 			return super.getItemPosition(object);
 		}
 		
 		@Override
 		public void notifyDataSetChanged() {
 			mExistedPageCount = mPager.getChildCount();
+			
 			super.notifyDataSetChanged();
 		}
 	}
