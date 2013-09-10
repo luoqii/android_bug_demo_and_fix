@@ -72,13 +72,11 @@ public class OnPageSelectedActivity extends Activity implements OnClickListener 
 
 	@Override
 	public void onClick(View view) {
-		KeyEvent event = new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DPAD_LEFT);
-		if (view.getId() == R.id.button1) {
-		} else {
-			event = new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DPAD_RIGHT);
-		}
-
-		mViewPager.executeKeyEvent(event);
+        if (view.getId() == R.id.button1) {
+            mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
+        } else {
+            mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
+        }
 	}
 
 }
